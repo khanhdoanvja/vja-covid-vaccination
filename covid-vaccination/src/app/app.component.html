@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="header">
+    <div style="width: 100%; height: 20px;"></div>
+    <div class="logo"></div>
+    <div class="title">HỆ THỐNG QUẢN LÝ TIÊM CHỦNG - VĂN PHÒNG MIỀN BẮC</div>
+  </div>
+  <div class="import-excel-container" (click)="input.click()" *ngIf="!data.length">
+    <i nz-icon nzType="upload" nzTheme="outline"></i>
+    Tải lên file excel
+  </div>
+
+  <input #input class="input-file" type="file" (change)="onFileChange($event)" />
+
+  <div *ngIf="data.length" class="customer-data">
+    <div class="title">DANH SÁCH ĐỐI TƯỢNG ĐĂNG KÝ TIÊM VẮC XIN COVID-19</div>
+    <div class="injected-date">Ngày tiêm chủng: {{ formatDate }}</div>
+    <div class="injected-info">Tổng số nhân viên đã được tiêm trong danh sách: {{ injectedNumber }}</div>
+    <div class="search-container">
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input type="text" [(ngModel)]="searchText" (ngModelChange)="filterData()" nz-input
+          placeholder="Nhập tên, Số điện thoại hoặc CMND" />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <button nz-button nzType="primary" nzSearch><i nz-icon nzType="search"></i></button>
+      </ng-template>
+    </div>
+    <nz-table #nestedTable [nzData]="displayData" [nzPageSize]="5">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Họ và tên</th>
+          <th>Giới tính</th>
+          <th>Ngày sinh</th>
+          <th>Số điện thoại</th>
+          <th>Tình trạng</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-template ngFor let-data let-i="index" [ngForOf]="nestedTable.data">
+          <tr (click)="showCustomer(i)">
+            <td>{{ data.sl }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.gender }}</td>
+            <td>{{ data.birth }}</td>
+            <td>{{ data.phone }}</td>
+            <td>{{ data.done ? 'Đã được tiêm' : 'Chưa được tiêm' }}</td>
+          </tr>
+          <tr [nzExpand]="showItem[i]">
+            <customer-form [customerData]="data" (customerDataChange)="changeCustomerData($event, i)"></customer-form>
+          </tr>
+        </ng-template>
+      </tbody>
+    </nz-table>
+    <div *ngIf="willDownload" class="export-excel">
+      <button nz-button nzType="primary" nzSize="default" nzShape="round" (click)="exportToExcel()">
+        <i nz-icon nzType="download"></i>
+        Export to excel
+      </button>
+    </div>
+  </div>
+</div>

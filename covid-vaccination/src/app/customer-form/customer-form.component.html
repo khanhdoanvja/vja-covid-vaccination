@@ -1,0 +1,18 @@
+<ng-container *ngIf="customerData">
+  <nz-descriptions [nzTitle]="customerData.name" [nzColumn]="3">
+    <nz-descriptions-item nzTitle="Giới tính">{{ customerData.gender }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Ngày sinh">{{ customerData.birth }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Nghề nghiệp">{{ customerData.job }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Điện thoại">{{ customerData.phone }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="CMT/CCCD">{{ customerData.indentificationCard }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Địa chỉ">{{ customerData.address }}</nz-descriptions-item>
+    <nz-descriptions-item [nzSpan]="3" nzTitle="Tiêm chủng">
+      <label class="injection-info" nz-checkbox [(ngModel)]="customerData.firstChecked" (ngModelChange)="saveData()">Check-in tại Kim Mã</label>
+      <label class="injection-info" nz-checkbox [(ngModel)]="customerData.secondChecked" (ngModelChange)="saveData()">Check-in tại Bệnh viện</label>
+      <label class="injection-info" nz-checkbox [(ngModel)]="customerData.done" (ngModelChange)="saveData()">Đã tiêm xong</label>
+    </nz-descriptions-item>
+    <nz-descriptions-item [nzSpan]="3" nzTitle="Ghi chú">
+      <textarea rows="2" nz-input [(ngModel)]="customerData.note" (ngModelChange)="saveData()"></textarea>
+    </nz-descriptions-item>
+  </nz-descriptions>
+</ng-container>
