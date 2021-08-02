@@ -6,7 +6,6 @@
   </div>
   <div class="import-excel-container" (click)="input.click()" *ngIf="!data.length">
     <i nz-icon nzType="upload" nzTheme="outline"></i>
-    Tải lên file excel
   </div>
 
   <input #input class="input-file" type="file" (change)="onFileChange($event)" />

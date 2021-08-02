@@ -14,19 +14,13 @@
   }
 
   .import-excel-container {
-    background: #fff;
-    border-radius: 15px;
-    color: #21984b;
+    background-image: url('.../assets/images/uploadexcel.png');
     cursor: pointer;
-    box-shadow: 5px 10px 8px #888888;
-    font-size: 24px;
-    height: 200px;
-    left: calc(50% - 250px);
-    padding: 50px;
+    height: 100px;
+    left: calc(90 - 10px);
     position: absolute;
-    text-align: center;
-    top: calc(50% - 200px);
-    width: 250px;
+    top: calc(10% - 10px);
+    width: 200px;
   
     i {
       display: block;
