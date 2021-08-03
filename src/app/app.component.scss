@@ -16,7 +16,7 @@
   }
 
   .import-excel-container {
-    left: calc(90% - 250px);
+    left: calc(99% - 250px);
     position: absolute;
     top: calc(30% - 200px);
   }
@@ -58,7 +58,7 @@
 
     nz-table {
       width: 100%;
-      margin: 0 auto;
+      margin-top: 4%;
       thead {
         th {
           font-weight: bold;
