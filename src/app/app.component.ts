@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
   formatGender(str: any) {
     if (!str || str === 0) return 'Không rõ';
 
-    return str === 1 ? 'Nam': 'Nữ';
+    return str === 'Nam' ? 'Nam': 'Nữ';
   }
 
   formatString(str: string) {
