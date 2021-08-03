@@ -88,8 +88,8 @@ export class AppComponent implements OnInit {
     const filterText = this.formatString(this.searchText);
     this.displayData = filter(this.data, (item) => {
       const name = this.formatString(item.name);
-      const indentificationCard = this.formatString(item.indentificationCard);
-      const phone = this.formatString(item.phone);
+      const indentificationCard = this.formatString(item.indentificationCard.toString());
+      const phone = this.formatString(item.phone.toString());
       return name.includes(filterText) || indentificationCard.includes(filterText) || phone.includes(filterText);
     }) as CustomerData[];
     this.showItem.fill(false);
@@ -108,6 +108,8 @@ export class AppComponent implements OnInit {
   }
 
   formatString(str: string) {
+    if (!str) return '';
+
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase();
   }
 
