@@ -1,16 +1,9 @@
 <div class="container">
-  <div class="header">
-    <div style="width: 100%; height: 20px;"></div>
-    <div class="logo"></div>
-    <div class="title">HỆ THỐNG QUẢN LÝ TIÊM CHỦNG - VĂN PHÒNG MIỀN BẮC</div>
-  </div>
   <div class="import-excel-container" (click)="input.click()" *ngIf="!data.length">
-    <i nz-icon nzType="upload" nzTheme="outline"></i>
-    Tải lên file excel
+    <img src="../assets/images/excel.png" height="50px" width="170px" alt="" />
   </div>
 
   <input #input class="input-file" type="file" (change)="onFileChange($event)" />
-
   <div *ngIf="data.length" class="customer-data">
     <div class="title">DANH SÁCH ĐỐI TƯỢNG ĐĂNG KÝ TIÊM VẮC XIN COVID-19</div>
     <div class="injected-date">Ngày tiêm chủng: {{ formatDate }}</div>
