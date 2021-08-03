@@ -6,6 +6,7 @@
   </div>
   <div class="import-excel-container" (click)="input.click()" *ngIf="!data.length">
     <i nz-icon nzType="upload" nzTheme="outline"></i>
+    Tải lên file excel
   </div>
 
   <input #input class="input-file" type="file" (change)="onFileChange($event)" />
@@ -27,7 +28,7 @@
       <thead>
         <tr>
           <th>STT</th>
-          <th>Họ và Tên</th>
+          <th>Họ và tên</th>
           <th>Giới tính</th>
           <th>Ngày sinh</th>
           <th>Số điện thoại</th>
@@ -53,8 +54,8 @@
     <div *ngIf="willDownload" class="export-excel">
       <button nz-button nzType="primary" nzSize="default" nzShape="round" (click)="exportToExcel()">
         <i nz-icon nzType="download"></i>
-        Xuất ra file excel
+        Export to excel
       </button>
-    </div>  
+    </div>
   </div>
 </div>
