@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
   formatBirth(str: string) {
     if (!str) return '';
 
-    return `${str.slice(6,8)}/${str.slice(4,6)}/${str.slice(0,4)}`;
+    return `${str.slice(4,6)}/${str.slice(6,8)}/${str.slice(0,4)}`;
   }
 
   formatGender(str: any) {
