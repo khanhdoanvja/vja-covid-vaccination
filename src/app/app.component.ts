@@ -88,8 +88,8 @@ export class AppComponent implements OnInit {
     const filterText = this.formatString(this.searchText);
     this.displayData = filter(this.data, (item) => {
       const name = this.formatString(item.name);
-      const indentificationCard = this.formatString(item.indentificationCard);
-      const phone = this.formatString(item.phone);
+      const indentificationCard = this.formatString(item.indentificationCard.toString());
+      const phone = this.formatString(item.phone.toString());
       return name.includes(filterText) || indentificationCard.includes(filterText) || phone.includes(filterText);
     }) as CustomerData[];
     this.showItem.fill(false);
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit {
       if (row.gender === 'Không rõ') {
         rowExcel.gender = 0
       } else {
-        rowExcel.gender = row.gender === 'Nam' ? 1 : 2;
+        rowExcel.gender = row.gender === 'Nam' ? 'Nam' : 'Nữ';
       }
       rowExcel.birth = `${row.birth.slice(6,10)}${row.birth.slice(3,5)}${row.birth.slice(0,2)}`
       this.dataForExcel.push(Object.values(rowExcel))
