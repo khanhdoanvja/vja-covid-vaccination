@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
 
     return `${str.slice(4,6)}/${str.slice(6,8)}/${str.slice(0,4)}`;
   }
-
+  
   formatGender(str: any) {
     if (!str || str === 0) return 'Không rõ';
 
